@@ -8,9 +8,15 @@ var passport =  require('passport')
 var session = require('express-session');
 var mongoose  = require('mongoose');
 
-//mongoose.connect("mongodb://localhost:27017/chirp-test");
+if(process.env.DEV_ENV){
+mongoose.connect("mongodb://localhost:27017/chirp-test");
+}
+else{
+mongoose.connect("mongodb://FirstApp:3_IZK55fkUOvskgajRGp3.BAWied.9d39pF_1l2qRws-@ds040898.mongolab.com:40898/FirstApp")  
+}
 
-mongoose.connect("mongodb://FirstApp:3_IZK55fkUOvskgajRGp3.BAWied.9d39pF_1l2qRws-@ds040898.mongolab.com:40898/FirstApp")
+
+
 var app = express();
 
 
